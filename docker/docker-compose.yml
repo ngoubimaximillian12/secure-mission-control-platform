@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:13
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: devdb
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  backend:
+    build:
+      context: ../backend
+    ports:
+      - "4000:4000"
+    environment:
+      DATABASE_URL: postgres://postgres:postgres@postgres:5432/devdb
+      JWT_SECRET: devsecret
+    depends_on:
+      - postgres
+
+  frontend:
+    build:
+      context: ../frontend
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:

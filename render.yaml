@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: backend
+    env: node
+    plan: free
+    buildCommand: cd backend && npm install
+    startCommand: node backend/index.js
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: devdb
+          property: connectionString
+      - key: JWT_SECRET
+        value: your-production-secret
+
+  - type: web
+    name: frontend
+    env: node
+    plan: free
+    buildCommand: cd frontend && npm install && npm run build
+    startCommand: npm run preview
+    staticPublishPath: frontend/dist
+
+databases:
+  - name: devdb
+    databaseName: devdb
+    user: postgres

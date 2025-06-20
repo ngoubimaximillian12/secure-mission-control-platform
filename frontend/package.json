@@ -1,0 +1,19 @@
+{
+  "name": "secure-mission-frontend",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "echo \"No tests yet\""
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.12.1"
+  },
+  "devDependencies": {
+    "vite": "^4.3.9",
+    "@vitejs/plugin-react": "^4.0.0"
+  }
+}
