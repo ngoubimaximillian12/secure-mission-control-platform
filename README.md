@@ -64,3 +64,12 @@ EXPOSE 4000
 
 # Command to start the backend app
 CMD ["node", "index.js"]
+
+👨‍💻 Author
+Ngoubi Maximillian Diangha
+GitHub: @ngoubimaximillian12
+Email: ngoubimaximilliandiangha@gmail.com
+LinkedIn: Diangha Ngoubi
+
+
+
